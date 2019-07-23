@@ -18,6 +18,7 @@ java -jar parser-0.0.1-SNAPSHOT.jar --startDate=2017-01-01.13:00:00 --duration=h
 ## MySQL
 
 #### Schema & tables
+```
 CREATE DATABASE `LogParser` 
 
 CREATE TABLE `lp_log` (
@@ -36,7 +37,10 @@ CREATE TABLE `bloqued_ips` (
   `Comments` varchar(100) NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=399 DEFAULT CHARSET=latin1;
+```
 
 #### Query
 
+```
 select Log_Ip, Log_Status, count(*) from lp_log where Log_Date >= "2017-01-01 00:00:00" AND Log_Date <= "2017-01-02 00:00:00" group by Log_Ip having count(Log_Ip) > 50
+```
